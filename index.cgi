@@ -31,7 +31,7 @@ get '/' => sub {
         foreach my $event (@$events) {
             my $type = $event->{'type'};
             next if $type !~ /^(Push|PullRequest)Event$/;
-            next if $event->{'created_at'} lt '2015-12-16';
+            next if $event->{'created_at'} lt '2015-12-17';
             push @$keep, $event;
 	    my $submitter = $event->{'payload'}->{'pull_request'}->{'user'}->{'login'} || $username;
             $counts->{$submitter}->{'username'} ||= $submitter;
